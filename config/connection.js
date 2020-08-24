@@ -1,5 +1,6 @@
 // Set up MySQL connection.
 const mysql = require("mysql");
+const fs = require("fs");
 
 // When deployed get the setup by expanding the JAWSDB_URL environment variable
 // OR otherwise hard-code for localhost, in which case instead of a blank
@@ -11,7 +12,7 @@ const mysqlSetup = process.env.JAWSDB_URL ||
   port: 3306,
   user: "root",
   // Read password from single line file with IIFE expression
-  password: (() => String(fs.readFileSync("../config/.mysql")).trim())(),
+  password: (() => String(fs.readFileSync(".mysql")).trim())(),
   database: "burgers_db"
 }
 const connection = mysql.createConnection(mysqlSetup);

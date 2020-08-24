@@ -50,7 +50,7 @@ const orm = {
       cb(result);
     });
   },
-  create: function(table, cols, vals, cb) {
+  insertOne: function(table, cols, vals, cb) {
     const queryString = "INSERT INTO " + table;
 
     queryString += " (";
@@ -71,7 +71,7 @@ const orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  update: function(table, objColVals, condition, cb) {
+  updateOne: function(table, objColVals, condition, cb) {
     const queryString = "UPDATE " + table;
 
     queryString += " SET ";
@@ -88,7 +88,7 @@ const orm = {
       cb(result);
     });
   },
-  delete: function(table, condition, cb) {
+  deleteOne: function(table, condition, cb) {
     const queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
     queryString += condition;
