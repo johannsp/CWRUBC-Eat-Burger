@@ -8,7 +8,6 @@ $(function() {
       description: $("#desc").val().trim(),
       devoured: 0
     };
-    console.log('∞° newBurger=\n"'+JSON.stringify(newBurger)+'"');
 
     // Send the POST request.
     $.ajax("/api/burgers", {
@@ -31,8 +30,6 @@ $(function() {
       description: $(this).parent()[0].firstChild.nodeValue.trim(),
       devoured: 1
     };
-    console.log('∞° id=\n"'+id+'"');
-    console.log('∞° updatedBurger=\n"'+JSON.stringify(updatedBurger)+'"');
 
     // Send the UPDATE request.
     $.ajax("/api/burgers/" + id, {
