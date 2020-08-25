@@ -9,7 +9,7 @@ const connection = require("../config/connection.js");
 function printQuestionMarks(num) {
   const arr = [];
 
-  for (const i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     arr.push("?");
   }
 
@@ -51,7 +51,7 @@ const orm = {
     });
   },
   insertOne: function(table, cols, vals, cb) {
-    const queryString = "INSERT INTO " + table;
+    let queryString = "INSERT INTO " + table;
 
     queryString += " (";
     queryString += cols.toString();
@@ -70,9 +70,9 @@ const orm = {
       cb(result);
     });
   },
-  // An example of objColVals would be {name: panther, sleepy: true}
+  // An example of objColVals would be {description: "Cheese burger", devoured: false}
   updateOne: function(table, objColVals, condition, cb) {
-    const queryString = "UPDATE " + table;
+    let queryString = "UPDATE " + table;
 
     queryString += " SET ";
     queryString += objToSql(objColVals);
@@ -89,7 +89,7 @@ const orm = {
     });
   },
   deleteOne: function(table, condition, cb) {
-    const queryString = "DELETE FROM " + table;
+    let queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
     queryString += condition;
 

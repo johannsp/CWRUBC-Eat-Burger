@@ -9,8 +9,13 @@
 
     <div class="col-md-4 list-container">
       <div class="card">
-        <ul class="burgers-ready">
-        </ul>
+        <ol class="burgers-ready">
+          {{#each burgers}}
+            {{#unless devoured}}
+              {{> burgers/burger-li devoured=false}}
+            {{/unless}}
+          {{/each}}
+        </ol>
       </div>
     </div>
 
@@ -18,7 +23,6 @@
       <form class="create-form">
 
         <div class="form-group">
-          <label for="desc">Burger:</label>
           <textarea id="desc" class="burger-textarea" rows="4" cols="30"></textarea>
         </div>
 
@@ -29,6 +33,11 @@
     <div class="col-md-4 list-container">
       <div class="card">
         <ul class="burgers-eaten">
+          {{#each burgers}}
+            {{#if devoured}}
+              {{> burgers/burger-li devoured=true}}
+            {{/if}}
+          {{/each}}
         </ul>
       </div>
     </div>
